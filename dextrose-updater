@@ -116,6 +116,7 @@ updates() {
     esac
 }
 
+/usr/bin/yum clean all
 to_update=$(updates)
 [ $? -ne 0 ] && abort
 if [ -z "${to_update}" ]; then
@@ -132,7 +133,6 @@ parse() {
 need_reboot=$(parse ${reboot_pkgs})
 need_relogin=$(parse ${relogin_pkgs})
 
-/usr/bin/yum clean all
 echo -e "\tPackages to update:" ${to_update} >> ${logfile}
 ${yum} -y update >> ${logfile} 2>&1 || abort
 to_update=$(updates)
