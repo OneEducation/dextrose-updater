@@ -1,5 +1,5 @@
 NAME     = dextrose-updater
-VERSION  = 5
+VERSION  = 6
 DISTNAME = $(NAME)-$(VERSION)
 
 REPO     = dextrose dextrose-freeworld
